@@ -6,20 +6,111 @@
     <title>product-preview-design</title>
 </head>
 <style>
-
+#main-product-img{
+    width: 400px;
+    height: 430px;
+    object-fit: cover;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0.25);
+    display: block;
+    margin: 20px auto;
+}
+#product_card{
+    width: 80px;
+    height: 90px;
+    object-fit: cover;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0.25);
+    padding: 3px;
+    margin: 10px;
+}
+.product-img-container{
+    display: flex;
+    justify-content: center;
+}
+.para{
+display: flex;
+justify-content: center;
+font-weight: 900;
+}
+.container-quality{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin: 10px 0;
+    }
+.quality-icon{
+        height: 20px;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+    .buy-now{
+      display: block;
+      margin: 10px auto;
+      color: rgb(26, 1, 26);
+      background-color: lightcoral;
+      border: none;
+      border-radius: 10px;
+      padding: 6px;
+      text-shadow: 2px 2px 2px rgb(172, 182, 152);
+      font-weight: 900;
+      cursor: pointer;
+    }
+    #product_card:hover{
+          box-shadow: 0px 0px 10px 0px rgb(198, 66, 66);
+    }
 </style>
 <body>
+<img src="images/img1.png"id="main-product-img"/>
+<div class="container-quality">
+  <img src="./images/add.png" alt="" class="quality-icon" onclick="inc()"/>
+  <span id="quantity">1</span>
+  <img src="./images/minus.png" alt=""class="quality-icon" onclick="dec()">
+</div>
+<button onclick="changeColor()" class="buy-now">Buy Now</button>
+<div class="product-img-container">
+        <img src="./images/img1.png" alt="" id="product_card" onclick="changeImage(1)">
+        <img src="./images/img2..jpg" alt="" id="product_card" onclick="changeImage(2)">
+        <img src="./images/img3.png" alt="" id="product_card" onclick="changeImage(3)">
+        <img src="./images/img4.png" alt="" id="product_card" onclick="changeImage(4)">
+        <img src="./images/img5.png" alt="" id="product_card" onclick="changeImage(5)">     
+</div>
 
-
-
-
-
-
-
-
-
+</div>
     <script>
 
+function changeImage(num){
+const mainImage = document.getElementById('main-product-img');
+  if(num == 1){
+    mainImage.src = "images/img1.png";
+    price.value = '14000';
+  }
+  else if(num == 2){
+    mainImage.src = "images/img2..jpg";
+  }
+  else if(num == 3){
+    mainImage.src = "images/img3.png";
+  }
+  else if(num == 4){
+    mainImage.src = "images/img4.png";
+  }
+  else if(num == 5){
+    mainImage.src = "images/img5.png";
+  }
+}
+const quantityelement = document.getElementById('quantity');
+   function inc(){
+          let quantity = parseInt(quantityelement.innerText);
+          quantityelement.innerText = ++quantity;
+        }
+        function dec(){
+            let quantity = parseInt(quantityelement.innerText);
+            if(quantity>1){
+                quantityelement.innerText = --quantity;
+            }
+        }
     </script>
 </body>
 </html>
